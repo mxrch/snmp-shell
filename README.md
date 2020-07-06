@@ -6,7 +6,7 @@ Here is a preview :\
 ![Screenshot](https://user-images.githubusercontent.com/17338428/86642223-083ac100-bfdc-11ea-85da-2cece511534d.PNG)
 
 ## Description
-If your target has a **Net-SNMP** instance with the **"extend"** functionality, and you got a **SNMP community string** which gives you **write access**, you can use this tool to automate the process of sending commands.\
+If your target has a **Net-SNMP** instance with the **"extend"** functionality, and you got a **SNMP community string** which gives you **write access**, you can use this tool to automate the process of sending commands with the SNMP RCE.\
 \
 The tool automatically put you in your path to **simulate a real shell**.\
 You can also use all the commands you can imagine, apart those requiring a fully interactive shell (MySQL, Vim, Nano, etc.)\
@@ -43,3 +43,7 @@ Options:
   -sw, --snmpwalk TEXT        Path for the snmpwalk binary
   -h, --help                  Show this message and exit.
 ```
+
+*****
+## References
+https://mogwailabs.de/blog/2019/10/abusing-linux-snmp-for-rce/
